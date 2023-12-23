@@ -1,7 +1,5 @@
 <script setup>
 import { useCartStore } from '../../stores/cart.js'
-import http from "@/services/http.js";
-import { ref } from 'vue';
 
 const cart = useCartStore()
 
@@ -10,22 +8,6 @@ const emit = defineEmits(['closeSection'])
 const closeSection = () => {
     emit('closeSection');
 };
-
-const search = ref('');
-const itemsSearch = ref([])
-
-async function searchItem() {
-    try {
-        const { data } = await http.get('/search/' + search.value);
-        itemsSearch.value = data.data
-    } catch (error) {
-        console.log(error?.response?.data)
-    }
-
-    if (search.value == '') {
-        itemsSearch.value = [];
-    }
-}
 
 const getImageUrl = (imagePath) => {
     return `http://localhost:8000/storage${imagePath.replace(/^public\//, '/')}`;
@@ -63,7 +45,7 @@ const getImageUrl = (imagePath) => {
                                     <p class="bg-yellow-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded ">
                                         Mythic</p>
 
-                                    <p class="text-white text-sm">
+                                    <p class="text-sm text-white">
                                         | Season 6
                                     </p>
                                 </div>
@@ -72,7 +54,7 @@ const getImageUrl = (imagePath) => {
                                     <p>R$ {{ skin.price }}</p>
                                 </div>
 
-                                <div class="bg-red-700 text-center font-bold cursor-pointer rounded-xl mt-2"
+                                <div class="mt-2 font-bold text-center bg-red-700 cursor-pointer rounded-xl"
                                     @click="cart.removeFromCart(skin)">
                                     <button>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -86,19 +68,23 @@ const getImageUrl = (imagePath) => {
                         </div>
                     </div>
 
-                    <div class="bg-blue-700 mt-4 text-center rounded-xl p-2">
-                        <RouterLink to="/checkout">
-                            <p>Proceed to Buy</p>
+                    <div class="fixed bottom-0 left-0 flex justify-between w-full py-5 bg-black px-7 rounded-t-2xl">
+                        <div>
+                            <p class="text-sm">Total</p>
 
                             <p>R$ {{ cart.cartTotal }}</p>
+                        </div>
+
+                        <RouterLink to="/checkout" class="px-4 py-3 bg-blue-700 rounded-full">
+                            <p>Checkout</p>
                         </RouterLink>
                     </div>
                 </div>
 
                 <div v-else class="mt-20">
-                    <p class="text-center text-lg font-bold">Your cart is empty</p>
+                    <p class="text-lg font-bold text-center">Your cart is empty</p>
 
-                    <p class="mt-2 text-center px-10">Add the items you want to purchase from our inventory</p>
+                    <p class="px-10 mt-2 text-center">Add the items you want to purchase from our inventory</p>
                 </div>
             </div>
         </nav>

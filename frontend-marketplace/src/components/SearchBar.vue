@@ -58,7 +58,7 @@ const changeCart = () => {
             </div>
 
             <!-- Cart Button on Desktop Screens -->
-            <div class="bg-slate-900 rounded-lg border hidden md:block">
+            <div class="hidden border rounded-lg bg-slate-900 md:block">
                 <button @click="changeCart" data-collapse-toggle="navbar-sticky" type="button"
                     class="flex gap-1 items-center justify-center mt-1.5 px-5 text-lg text-white rounded-lg">
                     <p class="">R$ {{ cartInfos.cartTotal }}</p>
@@ -74,12 +74,12 @@ const changeCart = () => {
 
         <!-- Search Options -->
         <div v-if="search && itemsSearch.length > 0"
-            class="absolute z-20 w-80 mt-2 bg-slate-900 max-h-80 overflow-y-auto border rounded-md">
+            class="absolute z-20 mt-2 overflow-y-auto border rounded-md w-80 bg-slate-900 max-h-80">
             <div>
-                <p class="text-sm m-3">Weapons</p>
+                <p class="m-3 text-sm">Weapons</p>
             </div>
             <ul>
-                <li class="flex w-full gap-4 py-2 px-4 my-3 text-white cursor-pointer mb-3" v-for="item in itemsSearch"
+                <li class="flex w-full gap-4 px-4 py-2 my-3 mb-3 text-white cursor-pointer" v-for="item in itemsSearch"
                     :key="item.id">
                     <img :src="getImageUrl(item.image_path)" class="object-cover w-20 h-6" :alt="item.name">
 
@@ -90,12 +90,12 @@ const changeCart = () => {
 
         <!-- Modal Cart Items -->
         <Transition>
-            <div v-if="cart" class="absolute z-20 mt-2 right-0 hidden md:block">
-                <div class="h-96 w-96 bg-slate-900 overflow-y-auto border rounded-md">
-                    <p class="text-lg px-5 py-2">Cart</p>
+            <div v-if="cart" class="absolute right-0 z-20 hidden mt-2 md:block">
+                <div class="overflow-y-auto border rounded-md h-96 w-96 bg-slate-900">
+                    <p class="px-5 py-2 text-lg">Cart</p>
 
                     <div v-if="cartInfos.cartItems.length > 0">
-                        <div class="grid grid-cols-2 gap-4 mx-1 pb-3">
+                        <div class="grid grid-cols-2 gap-4 pb-3 mx-1">
                             <div v-for="skin in cartInfos.cartItems" :key="skin.skin.id"
                                 class="p-1 bg-gray-900 border shadow-lg rounded-xl">
                                 <div class="py-3 p-1.5 rounded-lg cursor-pointer bg-black border border-gray-700">
@@ -110,7 +110,7 @@ const changeCart = () => {
                                         <p class="bg-yellow-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded ">
                                             Mythic</p>
 
-                                        <p class="text-white text-sm">
+                                        <p class="text-sm text-white">
                                             | Season 6
                                         </p>
                                     </div>
@@ -119,7 +119,7 @@ const changeCart = () => {
                                         <p>R$ {{ skin.price }}</p>
                                     </div>
 
-                                    <div class="bg-red-700 text-center font-bold cursor-pointer rounded-xl"
+                                    <div class="font-bold text-center bg-red-700 cursor-pointer rounded-xl"
                                         @click="cartInfos.removeFromCart(skin)">
                                         <button>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -133,7 +133,7 @@ const changeCart = () => {
 
                             </div>
                         </div>
-                        <div class="bg-blue-700 mt-4 text-center rounded-xl p-2 m-4">
+                        <div class="p-2 m-4 mt-4 text-center bg-blue-700 rounded-xl">
                             <RouterLink to="/checkout">
                                 <p>Proceed to Buy</p>
 
@@ -143,9 +143,9 @@ const changeCart = () => {
                     </div>
 
                     <div v-else class="mt-20">
-                        <p class="text-center text-lg font-bold">Your cart is empty</p>
+                        <p class="text-lg font-bold text-center">Your cart is empty</p>
 
-                        <p class="mt-2 text-center px-10">Add the items you want to purchase from our inventory</p>
+                        <p class="px-10 mt-2 text-center">Add the items you want to purchase from our inventory</p>
                     </div>
                 </div>
             </div>
@@ -154,9 +154,9 @@ const changeCart = () => {
 
     <!-- Only Screen Mobile -->
     <!-- Icon Cart -->
-    <div class="fixed bottom-4 right-4 lg:hidden z-30">
+    <div v-if="cartInfos.cartItems.length > 0" class="fixed z-30 bottom-4 right-4 lg:hidden">
         <button @click="changeCart" data-collapse-toggle="navbar-sticky" type="button"
-            class="flex gap-1 items-center justify-center bg-slate-900 border p-3 rounded-full mt-3 text-lg text-white">
+            class="flex items-center justify-center gap-1 p-3 mt-3 text-lg text-white border rounded-full bg-slate-900">
             <p class="">R$ {{ cartInfos.cartTotal }}</p>
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -169,7 +169,7 @@ const changeCart = () => {
 
     <!-- Page Cart Items -->
     <Transition>
-        <div v-show="cartModal" class="fixed top-0 z-40 w-full h-screen lg:hidden overflow-hidden">
+        <div v-show="cartModal" class="fixed top-0 z-40 w-full h-screen overflow-hidden lg:hidden">
             <CartSection @close-section="changeCart" />
         </div>
     </Transition>

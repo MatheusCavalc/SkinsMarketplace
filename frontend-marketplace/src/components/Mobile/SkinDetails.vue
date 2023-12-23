@@ -22,7 +22,7 @@ const addToCart = (skin) => {
 </script>
 
 <template>
-    <section v-if="props.skin" class="h-full overflow-y-hidden bg-gray-900">
+    <section v-if="props.skin" class="h-screen overflow-y-hidden bg-gray-900">
         <nav class="bg-gray-900 border-gray-200">
             <div class="flex justify-start max-w-screen-xl gap-3 px-2 py-4 mx-auto">
                 <button @click="closeSection" class="text-white ">

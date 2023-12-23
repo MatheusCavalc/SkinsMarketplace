@@ -22,6 +22,7 @@ async function login() {
             auth.setToken(data.data.token);
             auth.setUser(data.data.user_name);
             auth.setUserId(data.data.user_id)
+            auth.setUserCredits(data.data.user_credits)
             router.push({ name: "market" });
         }
     } catch (error) {
@@ -36,7 +37,7 @@ async function login() {
         <div class="max-w-screen-xl m-0 sm:m-10 bg-black shadow sm:rounded-lg flex justify-center flex-1 text-white">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                 <div>
-                    <p class="text-center">Writer</p>
+                    <p class="text-center">R6 Marketplace</p>
                 </div>
                 <div class="mt-12 flex flex-col items-center">
                     <h1 class="text-2xl xl:text-3xl font-extrabold">
@@ -58,7 +59,7 @@ async function login() {
                                 </div>
 
                                 <button type="submit" :disabled="disabledButton"
-                                    :class="[disabledButton ? 'bg-yellow-600' : 'bg-yellow-400 hover:bg-yellow-600']"
+                                    :class="[disabledButton ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-800']"
                                     class="mt-5 tracking-wide font-semibold text-white w-full py-4 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                     <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
@@ -70,13 +71,15 @@ async function login() {
                                         Sign In
                                     </span>
                                 </button>
+                                <!--
                                 <p class="text-sm text-white font-light dark:text-gray-400">
                                     Don’t have an account yet? <router-link to="/register"
                                         class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign
                                         up</router-link>
                                 </p>
+                                -->
                                 <p class="mt-6 text-xs text-white text-center">
-                                    I agree to abide by templatana's
+                                    I agree to marketplace
                                     <a href="#" class="border-b border-gray-500 border-dotted">
                                         Terms of Service
                                     </a>
@@ -91,7 +94,7 @@ async function login() {
                     </div>
                 </div>
             </div>
-            <div class="flex-1 text-center hidden lg:flex bg-yellow-400">
+            <div class="flex-1 text-center hidden lg:flex bg-blue-600">
                 <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat" />
             </div>
         </div>

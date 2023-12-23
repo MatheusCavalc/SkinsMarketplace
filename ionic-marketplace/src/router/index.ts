@@ -59,7 +59,12 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       authenticated: true
     }
-  } 
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/Market/CartPage.vue'),
+  }
 ]
 
 const router = createRouter({

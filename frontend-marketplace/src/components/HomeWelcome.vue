@@ -31,7 +31,7 @@ import { RouterLink } from 'vue-router';
 
             <div class="pt-28">
                 <div>
-                    <img class="w-80 rotate-12 drop-shadow-2xl" src="../assets/gun-item.jpg" alt="">
+                    <img class="w-[420px] rotate-12 drop-shadow-2xl" src="../assets/gun-item.jpg" alt="">
 
                     <div class="mt-2 text-right lg:text-left">
                         <p class="text-white text-sm">C7E</p>
@@ -40,7 +40,7 @@ import { RouterLink } from 'vue-router';
                 </div>
 
                 <div>
-                    <img class="w-96 -rotate-12" src="../assets/home-skin-2.png" alt="">
+                    <img class="w-[450px] -rotate-12" src="../assets/home-skin-2.png" alt="">
 
                     <div class="">
                         <p class="text-white text-sm">C8</p>

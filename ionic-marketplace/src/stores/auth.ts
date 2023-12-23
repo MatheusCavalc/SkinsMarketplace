@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import http from '@/services/http.ts'
+import http from '@/services/http'
 import router from '@/router'
 
 export const useAuthStore = defineStore('auth', () => {

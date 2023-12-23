@@ -47,9 +47,9 @@ onMounted(() => {
             </div>
           </div>
 
-          <div class="flex order-2 mt-8 lg:order-1">
-            <img class="w-1/2 lg:w-60" src="https://cs.money/img/main/webp/mobile_cart.webp" alt="">
-            <img class="w-1/2 lg:w-60" src="https://cs.money/img/main/webp/mobile_inventory.webp" alt="">
+          <div class="flex order-2 gap-3 mt-8 lg:order-1">
+            <img class="w-1/2 border-2 border-black rounded-xl lg:w-52" src="../images/mobile-app-2.jpg" alt="">
+            <img class="w-1/2 border-2 border-black rounded-xl lg:w-52" src="../images/mobile-app-1.jpg" alt="">
           </div>
         </div>
       </div>
@@ -64,82 +64,7 @@ onMounted(() => {
           <div v-for="skin in listSkins" :key="skin.id"
             class="flex-shrink-0 p-1 bg-gray-900 border shadow-lg w-72 lg:w-80 rounded-xl min-w-80">
             <div class="py-14 p-1.5 rounded-lg bg-black border border-gray-700">
-              <img class="object-contain h-28 w-96" :src="getImageUrl(skin.skin.image_path)"
-                :alt="skin.skin.name">
-            </div>
-
-            <div class="px-6 py-4">
-              <div class="mb-2 text-xl font-bold text-white">{{ skin.skin.name }}</div>
-
-              <div class="flex pb-2 border-b border-gray-600">
-                <p class="bg-yellow-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded ">
-                  Mythic</p>
-
-                <p class="text-white">
-                  | Season 6
-                </p>
-              </div>
-
-              <div class="flex justify-between pb-2 mt-2 text-white border-b border-gray-600">
-                <p>Last sold at:</p>
-                <p>{{ skin.price }}</p>
-              </div>
-
-              <div class="flex justify-between pb-2 mt-2 text-white border-b border-gray-600">
-                <p>Current price range:</p>
-                <p class="text-sm">120 - 500</p>
-              </div>
-
-              <div class="flex justify-between mt-2 text-white">
-                <p>Sale order:</p>
-                <p>64</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div v-for="skin in listSkins" :key="skin.id"
-            class="flex-shrink-0 p-1 bg-gray-900 border shadow-lg w-72 lg:w-80 rounded-xl min-w-80">
-            <div class="py-14 p-1.5 rounded-lg bg-black border border-gray-700">
-              <img class="object-contain h-28 w-96" :src="getImageUrl(skin.skin.image_path)"
-                :alt="skin.skin.name">
-            </div>
-
-            <div class="px-6 py-4">
-              <div class="mb-2 text-xl font-bold text-white">{{ skin.skin.name }}</div>
-
-              <div class="flex pb-2 border-b border-gray-600">
-                <p class="bg-yellow-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded ">
-                  Mythic</p>
-
-                <p class="text-white">
-                  | Season 6
-                </p>
-              </div>
-
-              <div class="flex justify-between pb-2 mt-2 text-white border-b border-gray-600">
-                <p>Last sold at:</p>
-                <p>{{ skin.price }}</p>
-              </div>
-
-              <div class="flex justify-between pb-2 mt-2 text-white border-b border-gray-600">
-                <p>Current price range:</p>
-                <p class="text-sm">120 - 500</p>
-              </div>
-
-              <div class="flex justify-between mt-2 text-white">
-                <p>Sale order:</p>
-                <p>64</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div v-for="skin in listSkins" :key="skin.id"
-            class="flex-shrink-0 p-1 bg-gray-900 border shadow-lg w-72 lg:w-80 rounded-xl min-w-80">
-            <div class="py-14 p-1.5 rounded-lg bg-black border border-gray-700">
-              <img class="object-contain h-28 w-96" :src="getImageUrl(skin.skin.image_path)"
-                :alt="skin.skin.name">
+              <img class="object-contain h-28 w-96" :src="getImageUrl(skin.skin.image_path)" :alt="skin.skin.name">
             </div>
 
             <div class="px-6 py-4">

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useCartStore } from '@/stores/cart'
+import { useBackButton } from '@ionic/vue';
 
 const props = defineProps(['skin'])
 
@@ -19,29 +20,36 @@ const addToCart = (skin: any) => {
     cart.addToCart(skin)
     closeSection()
 }
+
+useBackButton(5, () => {
+    emit('closeSection');
+});
 </script>
 
 <template>
     <section v-if="props.skin" class="h-full overflow-y-hidden bg-gray-900">
-        <nav class="bg-gray-900 border-gray-200">
-            <div class="flex justify-start max-w-screen-xl gap-3 px-2 py-4 mx-auto">
-                <button @click="closeSection" class="text-white ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
+        <div class="bg-gradient-to-b from-black to-gray-900">
+            <nav>
+                <div class="flex justify-start max-w-screen-xl gap-3 px-2 py-4 mx-auto">
+                    <button @click="closeSection" class="text-white ">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
 
-        <div class="text-white">
-            <div class="py-7 px-2">
-                <div v-if="skin" class="h-full content-center grid grid-cols-1">
-                    <img class="object-cover w-full rounded-lg my-auto" :src="getImageUrl(skin.skin.image_path)"
+            <div class="px-2 py-7">
+                <div v-if="skin" class="grid content-center h-full grid-cols-1">
+                    <img class="object-cover w-full my-auto rounded-lg" :src="getImageUrl(skin.skin.image_path)"
                         :alt="skin.skin.name" />
                 </div>
             </div>
+        </div>
 
+        <div class="text-white">
             <div class="">
                 <div class="mx-4 mt-3 lg:mx-5">
                     <div class="flex">
@@ -51,12 +59,12 @@ const addToCart = (skin: any) => {
                         <p class="text-sm">| Season 6</p>
                     </div>
 
-                    <div class="">
-                        <p class="text-white text-2xl">{{ skin.skin.name }}
+                    <div class="mt-1">
+                        <p class="text-2xl font-bold text-white">{{ skin.skin.name }}
                         </p>
                     </div>
 
-                    <div class="mt-5 p-5 bg-black text-white rounded-md">
+                    <div class="p-5 mt-5 text-white bg-black rounded-md">
                         <div class="">
                             <div class="flex justify-between">
                                 <p>Last sold at:</p>
@@ -75,16 +83,16 @@ const addToCart = (skin: any) => {
                         </div>
                     </div>
 
-                    <div class="mt-2 p-5 bg-black text-white rounded-md">
-                        <div class="mb-3 pb-4 border-b">
+                    <div class="p-5 mt-2 text-white bg-black rounded-md">
+                        <div class="pb-4 mb-3 border-b">
                             <div class="flex justify-between">
                                 <p>Recommended price</p>
 
                                 <p>0</p>
                             </div>
-                            <p class="mt-2 text-sm pr-8">The price we
+                            <p class="pr-8 mt-2 text-sm">The price we
                                 recommend based
-                                on cs.money prices</p>
+                                on marketplace prices</p>
                         </div>
 
                         <div>
@@ -94,9 +102,9 @@ const addToCart = (skin: any) => {
                     </div>
                 </div>
 
-                <div class="flex gap-2 flex-row-reverse mt-5 mr-2 lg:mr-5">
+                <div class="flex flex-row-reverse gap-2 mt-5 mr-2 lg:mr-5">
                     <button type="submit" @click="addToCart(skin)"
-                        class="bg-blue-700 font-bold py-2 text-base tracking-tighter text-white rounded-full px-7">
+                        class="py-2 text-base font-bold tracking-tighter text-white bg-blue-700 rounded-full px-7">
                         Add to cart
                     </button>
                 </div>

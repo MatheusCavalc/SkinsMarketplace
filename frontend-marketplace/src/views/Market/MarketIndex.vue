@@ -65,7 +65,7 @@ onMounted(() => {
             </section>
 
             <section v-else class="pb-20 bg-black">
-                <div class="flex justify-end py-5 lg:mx-4 text-white">
+                <div class="flex justify-end py-5 text-white lg:mx-4">
                     <SearchBar />
 
                     <div class="flex mx-4">
@@ -81,50 +81,39 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <div class="flex justify-center">
-                    <div class="grid grid-cols-1 gap-4 mx-4 lg:grid-cols-4">
+                <div class="flex justify-center lg:ml-64">
+                    <div class="grid grid-cols-2 gap-1.5 mx-3 lg:grid-cols-4 pb-20">
                         <div v-for="skin in listSkins" :key="skin.skin.id"
-                            class="relative flex-shrink-0 p-1 bg-gray-900 border shadow-lg w-80 rounded-xl">
-                            <div class="py-14 p-1.5 rounded-lg cursor-pointer bg-black border border-gray-700">
+                            class="relative p-1 rounded-md shadow-lg bg-slate-800">
+                            <div class="py-4 p-1.5 rounded-lg cursor-pointer">
                                 <img @click="openDetails(skin)" class="object-contain h-28 w-96"
                                     :src="getImageUrl(skin.skin.image_path)" :alt="skin.skin.name">
                             </div>
 
-                            <div class="px-6 py-4">
-                                <div class="mb-2 text-xl font-bold text-white">{{ skin.skin.name }}</div>
+                            <div class="px-2 py-2">
+                                <div class="mb-2 text-base font-bold text-white md:text-xl">{{ skin.skin.name }}</div>
 
                                 <div class="flex pb-2 border-b border-gray-600">
-                                    <p class="bg-yellow-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded ">
+                                    <p class="bg-yellow-400 text-white text-sm font-medium me-1 px-1.5 py-0.5 rounded ">
                                         Mythic</p>
 
-                                    <p class="text-white">
+                                    <p class="text-sm text-white">
                                         | Season 6
                                     </p>
                                 </div>
 
-                                <div class="flex justify-between pb-2 mt-2 text-white border-b border-gray-600">
-                                    <p>Last sold at:</p>
-                                    <p>{{ skin.price }}</p>
-                                </div>
-
-                                <div class="flex justify-between pb-2 mt-2 text-white border-b border-gray-600">
-                                    <p>Current price range:</p>
-                                    <p class="text-sm">120 - 500</p>
-                                </div>
-
-                                <div class="flex justify-between mt-2 text-white">
-                                    <p>Sale order:</p>
-                                    <p>64</p>
+                                <div class="flex justify-start pb-2 mt-2 text-white">
+                                    <p>$ {{ skin.price }}</p>
                                 </div>
                             </div>
 
                             <Transition>
-                                <div class="hidden lg:block top-7 fixed inset-0 z-40 flex items-center justify-center overflow-x-hidden overflow-y-auto"
+                                <div class="fixed inset-0 z-40 flex items-center justify-center hidden overflow-hidden lg:block top-7"
                                     v-show="skin.showDetails">
                                     <SkinInfos :skin="skin" @close-section="closeDetails(skin)" />
                                 </div>
                             </Transition>
-                            <div v-show="skin.showDetails" class="hidden lg:block fixed inset-0 z-30 bg-black opacity-75">
+                            <div v-show="skin.showDetails" class="fixed inset-0 z-30 hidden bg-black opacity-75 lg:block">
                             </div>
 
                         </div>
@@ -132,7 +121,8 @@ onMounted(() => {
                 </div>
 
                 <Transition>
-                    <div v-show="functions.toast" class="fixed bottom-20 lg:bottom-4 right-4 z-10 border rounded-md lg:border-none">
+                    <div v-show="functions.toast"
+                        class="fixed z-10 border rounded-md bottom-4 right-4 lg:border-none">
                         <ToastNotification />
                     </div>
                 </Transition>
@@ -140,13 +130,13 @@ onMounted(() => {
         </HomeLayout>
 
         <Transition>
-            <div v-show="searchSection" class="fixed top-0 z-20 w-full h-screen lg:hidden overflow-hidden">
+            <div v-show="searchSection" class="fixed top-0 z-20 w-full h-screen overflow-hidden lg:hidden">
                 <SearchSection @close-section="searchSection = false" />
             </div>
         </Transition>
 
         <Transition>
-            <div v-if="detailsOpen && chooseSkin" class="fixed top-0 z-50 w-full h-screen lg:hidden overflow-hidden">
+            <div v-if="detailsOpen && chooseSkin" class="fixed top-0 z-50 w-full h-screen overflow-hidden lg:hidden">
                 <SkinDetails :skin="chooseSkin" @close-section="closeDetails(chooseSkin)" />
             </div>
         </Transition>

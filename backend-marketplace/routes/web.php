@@ -20,7 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     Auth::loginUsingId(2);
-    $notifications = Sale::where('buyer_id', auth()->user()->id)->orWhere('seller_id', auth()->user()->id)->latest()->get();
+    $notifications = Sale::with('skin')->where('buyer_id', auth()->user()->id)->orWhere('seller_id', auth()->user()->id)->latest()->get();
+    
+    $skins = UserSkin::with('skin', 'user')
+            ->where('for_sale', true)
+            ->latest()
+            ->take(15)
+            ->get();
 
-    dd($notifications);
+    dd($skins);
 });

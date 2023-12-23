@@ -7,6 +7,7 @@ export const useAuthStore = defineStore('auth', () => {
   const token = ref(localStorage.getItem('token'))
   const user = ref(localStorage.getItem('user'))
   const userId = ref(localStorage.getItem('user_id'))
+  const userCredits = ref(localStorage.getItem('user_credits'))
 
   function setToken(tokenValue) {
     localStorage.setItem('token', tokenValue);
@@ -21,6 +22,11 @@ export const useAuthStore = defineStore('auth', () => {
   function setUserId(userIdValue) {
     localStorage.setItem('user_id', userIdValue);
     userId.value = userIdValue;
+  }
+
+  function setUserCredits(userCreditsValue) {
+    localStorage.setItem('user_credits', userCreditsValue);
+    userCredits.value = userCreditsValue;
   }
 
   const isAuthenticated = computed(() => {
@@ -63,9 +69,11 @@ export const useAuthStore = defineStore('auth', () => {
     token,
     user,
     userId,
+    userCredits,
     setToken,
     setUser,
     setUserId,
+    setUserCredits,
     checkToken,
     isAuthenticated,
     clear

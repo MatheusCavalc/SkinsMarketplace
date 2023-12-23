@@ -5,6 +5,8 @@ import { useAuthStore } from '@/stores/auth'
 import http from '@/services/http'
 import { reactive, ref } from 'vue'
 import router from '@/router'
+import { useBackButton, useIonRouter } from '@ionic/vue';
+import { App } from '@capacitor/app';
 
 const auth = useAuthStore();
 
@@ -50,6 +52,13 @@ async function login() {
 onIonViewWillEnter(() => {
     disabledButton.value = false;
 })
+
+const ionRouter = useIonRouter();
+useBackButton(-1, () => {
+    if (!ionRouter.canGoBack()) {
+        App.exitApp();
+    }
+});
 </script>
 
 <template>
@@ -57,9 +66,6 @@ onIonViewWillEnter(() => {
         <div class="flex justify-center min-h-screen text-gray-900 bg-black">
             <div class="flex justify-center flex-1 max-w-screen-xl m-0 text-white bg-black shadow sm:m-10 sm:rounded-lg">
                 <div class="p-6 lg:w-1/2 xl:w-5/12 sm:p-12">
-                    <div>
-                        <p class="text-center">Writer</p>
-                    </div>
                     <div class="flex flex-col items-center mt-12">
                         <h1 class="text-2xl font-extrabold xl:text-3xl">
                             Sign in
@@ -107,13 +113,8 @@ onIonViewWillEnter(() => {
                                             </svg>
                                         </p>
                                     </button>
-                                    <p class="text-sm font-light text-white dark:text-gray-400">
-                                        Don’t have an account yet? <router-link to="/"
-                                            class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign
-                                            up</router-link>
-                                    </p>
                                     <p class="mt-6 text-xs text-center text-white">
-                                        I agree to abide by templatana's
+                                        I agree to abide by marketplace
                                         <a href="#" class="border-b border-gray-500 border-dotted">
                                             Terms of Service
                                         </a>
