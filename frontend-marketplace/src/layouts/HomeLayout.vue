@@ -10,7 +10,7 @@ const auth = useAuthStore();
 </script>
 
 <template>
-    <nav class="top-0 z-20 w-full bg-gray-900 border-b border-gray-200 start-0 dark:border-gray-600">
+    <nav class="sticky top-0 z-20 w-full bg-gray-900 border-b border-gray-200 start-0 dark:border-gray-600">
         <div class="flex flex-wrap justify-between max-w-screen-xl px-2 py-4 mx-auto lg:p-4">
 
             <div class="flex lg:order-1">
@@ -40,7 +40,7 @@ const auth = useAuthStore();
 
             <div class="lg:hidden">
                 <aside id="logo-sidebar" :class="{ 'transform-none': menu, '-translate-x-full': !menu }"
-                    class="fixed top-0 left-0 z-40 w-64 h-screen pt-5 transition-transform bg-gray-800 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+                    class="fixed top-0 left-0 z-50 w-64 h-screen pt-5 transition-transform bg-gray-800 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
                     aria-label="Sidebar">
                     <div class="h-full pb-4 overflow-y-auto">
                         <div class="flex gap-2 px-3 pb-4 border-b">
@@ -66,6 +66,16 @@ const auth = useAuthStore();
                             <li>
                                 <RouterLink to="/market" class="flex items-center p-2 text-gray-900 rounded-lg group">
                                     <span class="flex-1 ml-3 text-white whitespace-nowrap">Market</span>
+                                </RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/market" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                                    <span class="flex-1 ml-3 text-white whitespace-nowrap">Latest</span>
+                                </RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/market" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                                    <span class="flex-1 ml-3 text-white whitespace-nowrap">About</span>
                                 </RouterLink>
                             </li>
                         </ul>
@@ -99,6 +109,11 @@ const auth = useAuthStore();
                         <RouterLink to="/market"
                             class="block px-3 py-2 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
                             Market</RouterLink>
+                    </li>
+                    <li>
+                        <RouterLink to="/market"
+                            class="block px-3 py-2 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
+                            Latest</RouterLink>
                     </li>
                     <li>
                         <a href="#"

@@ -75,7 +75,7 @@ onMounted(() => {
             <LoadingSpinner />
         </section>
 
-        <section v-else class="h-screen text-white bg-slate-900">
+        <section v-else class="min-h-screen pb-20 text-white bg-slate-900">
             <div class="px-8 lg:px-10 py-10 flex gap-4 lg:gap-2">
                 <p class="text-2xl lg:text-3xl font-bold">My Skins</p>
 

@@ -1,4 +1,5 @@
 <script setup>
+import moment from 'moment';
 const props = defineProps(['notifications', 'user_id'])
 const emits = defineEmits(['closeSection'])
 </script>
@@ -14,20 +15,20 @@ const emits = defineEmits(['closeSection'])
                     </svg>
                 </button>
 
-                <p class="text-white text-lg">Your Notifications</p>
+                <p class="text-lg text-white">Your Notifications</p>
             </div>
         </nav>
 
         <div class="text-white">
             <div v-for="notification in notifications" :key="notification.id">
                 <div v-if="notification.seller_id == user_id" class="p-2 bg-black border-b">
-                    <p class="text-sm">{{ notification.created_at }}</p>
+                    <p class="text-sm">{{ moment(notification.created_at).format('MMMM Do YYYY, h:mm:ss a') }}</p>
                     <p class="text-sm">Sale of</p>
                     <p>{{ notification.skin.name }} confirmed</p>
                 </div>
 
                 <div v-if="notification.buyer_id == user_id" class="p-2 border-b bg-slate-900">
-                    <p class="text-sm">{{ notification.created_at }}</p>
+                    <p class="text-sm">{{ moment(notification.created_at).format('MMMM Do YYYY, h:mm:ss a') }}</p>
                     <p class="text-sm">Purchase of</p>
                     <p>{{ notification.skin.name }} confirmed</p>
                 </div>

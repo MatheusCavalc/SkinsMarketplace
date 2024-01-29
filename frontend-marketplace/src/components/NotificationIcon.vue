@@ -2,6 +2,7 @@
 import NotificationSection from './Mobile/NotificationSection.vue';
 import http from "@/services/http.js";
 import { onMounted, ref } from 'vue';
+import moment from 'moment'
 
 const open = ref(false)
 
@@ -52,16 +53,16 @@ onMounted(() => {
         <!--Modal-->
         <Transition>
             <div v-show="open"
-                class="absolute hidden lg:block right-0 z-20 text-white border rounded-md bg-slate-900 overflow-auto max-h-56 w-72">
+                class="absolute right-0 z-20 hidden overflow-auto text-white border rounded-md lg:block bg-slate-900 max-h-56 w-72">
                 <div v-for="notification in notifications" :key="notification.id">
                     <div v-if="notification.seller_id == user_id" class="p-2 bg-black border-b rounded-md">
-                        <p class="text-sm">{{ notification.created_at }}</p>
+                        <p class="text-sm">{{ moment(notification.created_at).format('MMMM Do YYYY, h:mm:ss a') }}</p>
                         <p class="text-sm">Sale of</p>
                         <p>{{ notification.skin.name }} confirmed</p>
                     </div>
 
                     <div v-if="notification.buyer_id == user_id" class="p-2 border-b rounded-md bg-slate-900">
-                        <p class="text-sm">{{ notification.created_at }}</p>
+                        <p class="text-sm">{{ moment(notification.created_at).format('MMMM Do YYYY, h:mm:ss a') }}</p>
                         <p class="text-sm">Purchase of</p>
                         <p>{{ notification.skin.name }} confirmed</p>
                     </div>
