@@ -64,8 +64,8 @@ onMounted(() => {
                 <LoadingSpinner />
             </section>
 
-            <section v-else class="pb-20 bg-black">
-                <div class="flex justify-end py-5 text-white lg:mx-4">
+            <section v-else class="pb-20 bg-gradient-to-b from-black to-gray-950">
+                <div class="flex justify-end pt-3 pb-10 lg:pt-14 lg:pb-18 text-white lg:mx-16"> <!--lg:mx-4-->
                     <SearchBar />
 
                     <div class="flex mx-4">
@@ -81,11 +81,11 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <div class="flex justify-center lg:ml-64">
-                    <div class="grid grid-cols-2 gap-1.5 mx-3 lg:grid-cols-4 pb-20">
+                <div class="flex justify-center lg:mx-20"> <!--lg:ml-64-->
+                    <div class="grid grid-cols-2 gap-x-1.5 gap-y-3 lg:gap-x-3 lg:gap-y-6 mx-3 lg:grid-cols-4 pb-20">
                         <div v-for="skin in listSkins" :key="skin.skin.id"
-                            class="relative p-1 rounded-md shadow-lg bg-slate-800">
-                            <div class="py-4 p-1.5 rounded-lg cursor-pointer">
+                            class="relative p-1 rounded-md shadow-lg bg-gray-900">
+                            <div class="py-4 lg:py-12 p-1.5 rounded-lg cursor-pointer bg-black">
                                 <img @click="openDetails(skin)" class="object-contain h-28 w-96"
                                     :src="getImageUrl(skin.skin.image_path)" :alt="skin.skin.name">
                             </div>

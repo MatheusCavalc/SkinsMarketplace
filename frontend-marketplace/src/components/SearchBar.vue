@@ -52,13 +52,13 @@ const changeCart = () => {
                         </svg>
                     </div>
                     <input type="search" id="default-search" v-model="search" @keyup="searchItem"
-                        class="block w-full p-2.5 text-sm text-white bg-gray-900 border border-gray-300 rounded-lg ps-10"
+                        class="block w-full p-2.5 text-sm text-white bg-black border border-gray-300 rounded-lg ps-10"
                         placeholder="Search...">
                 </div>
             </div>
 
             <!-- Cart Button on Desktop Screens -->
-            <div class="hidden border rounded-lg bg-slate-900 md:block">
+            <div class="hidden border rounded-lg bg-black md:block">
                 <button @click="changeCart" data-collapse-toggle="navbar-sticky" type="button"
                     class="flex gap-1 items-center justify-center mt-1.5 px-5 text-lg text-white rounded-lg">
                     <p class="">R$ {{ cartInfos.cartTotal }}</p>

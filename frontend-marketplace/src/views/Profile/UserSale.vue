@@ -39,7 +39,7 @@ onMounted(() => {
                 <p class="text-2xl font-bold">My Last Sells</p>
             </div>
 
-            <div v-for="skin in list" :key="skin.id" class="flex justify-between border-b py-4 px-2 lg:px-10">
+            <div v-for="skin in list" :key="skin.id" class="flex justify-between border-b py-4 mx-2 lg:mx-32">
                 <div class="mr-2 lg:mr-20">
                     <img class="w-32 h-20 lg:w-72 lg:h-40 object-contain lg:border rounded-md"
                         :src="getImageUrl(skin.skin.image_path)" alt="">

@@ -10,7 +10,7 @@ const auth = useAuthStore();
 </script>
 
 <template>
-    <nav class="sticky top-0 z-20 w-full bg-gray-900 border-b border-gray-200 start-0 dark:border-gray-600">
+    <nav class="sticky top-0 z-40 w-full bg-gray-950 border-b border-gray-200">
         <div class="flex flex-wrap justify-between max-w-screen-xl px-2 py-4 mx-auto lg:p-4">
 
             <div class="flex lg:order-1">
@@ -40,7 +40,7 @@ const auth = useAuthStore();
 
             <div class="lg:hidden">
                 <aside id="logo-sidebar" :class="{ 'transform-none': menu, '-translate-x-full': !menu }"
-                    class="fixed top-0 left-0 z-50 w-64 h-screen pt-5 transition-transform bg-gray-800 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+                    class="fixed top-0 left-0 z-50 w-64 h-screen pt-5 transition-transform bg-gray-950 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
                     aria-label="Sidebar">
                     <div class="h-full pb-4 overflow-y-auto">
                         <div class="flex gap-2 px-3 pb-4 border-b">
