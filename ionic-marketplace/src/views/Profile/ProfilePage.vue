@@ -25,7 +25,7 @@ onIonViewWillEnter(() => {
 <template>
     <ion-page>
         <AppLayout>
-            <section class="h-screen px-10 py-5 text-white bg-slate-900">
+            <section class="h-screen px-10 py-5 text-white bg-gradient-to-b from-black to-gray-950">
                 <div>
                     <p class="text-xl font-bold text-center">My Account</p>
                 </div>

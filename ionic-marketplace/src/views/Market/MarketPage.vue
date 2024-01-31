@@ -77,7 +77,7 @@ onIonViewWillEnter(() => {
                 <LoadingSpinner />
             </section>
 
-            <section v-else class="min-h-screen overflow-auto text-white bg-slate-900">
+            <section v-else class="min-h-screen overflow-auto text-white bg-gradient-to-b from-black to-gray-950">
 
                 <SearchBar />
 
@@ -117,8 +117,8 @@ onIonViewWillEnter(() => {
                 <div class="flex justify-center">
                     <div class="grid grid-cols-2 gap-1.5 mx-3 lg:grid-cols-4 pb-20">
                         <div v-for="skin in listSkins" :key="skin.skin.id"
-                            class="relative p-1 rounded-md shadow-lg bg-slate-800">
-                            <div class="py-4 p-1.5 rounded-lg cursor-pointer">
+                            class="relative p-1 rounded-md shadow-lg bg-gray-900">
+                            <div class="py-4 p-1.5 rounded-lg cursor-pointer bg-black">
                                 <img @click="openDetails(skin)" class="object-contain h-28 w-96"
                                     :src="getImageUrl(skin.skin.image_path)" :alt="skin.skin.name">
                             </div>

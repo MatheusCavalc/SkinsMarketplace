@@ -44,12 +44,12 @@ onIonViewWillEnter(() => {
 <template>
     <IonPage>
         <AppLayout>
-            <section v-if="loading" class="bg-gray-900">
+            <section v-if="loading" class="bg-gradient-to-b from-black to-gray-950">
                 <LoadingSpinner />
             </section>
 
-            <section v-else class="h-full px-3 pb-16 overflow-auto bg-gray-900">
-                <nav class="bg-gray-900 border-gray-200">
+            <section v-else class="h-full px-3 pb-16 overflow-auto bg-gradient-to-b from-black to-gray-950">
+                <nav class="">
                     <div class="flex justify-center gap-3 px-5 py-4">
                         <p class="text-xl font-bold text-white">Notifications</p>
                     </div>
